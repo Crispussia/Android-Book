@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    app:cardCornerRadius="8dp"
+    android:padding="8dp"
+    android:layout_margin="4dp"
+    app:cardElevation="4dp"
+    android:foreground="?selectableItemBackground"
+    android:clickable="true"
+    app:cardBackgroundColor="@color/background_dark">
+
+    <RelativeLayout
+        android:layout_width="413dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageBook"
+            android:layout_width="100dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="0dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@id/imageBook"
+            android:textAllCaps="true"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Rich dada poor dad"
+
+            />
+
+        <TextView
+            android:id="@+id/tvIdBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_toEndOf="@id/imageBook"
+            android:text="Reference : "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvReference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/tvIdBook"
+            tools:text="000000000000000" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvIdBook"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/imageBook"
+            android:text="Price : "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvIdBook"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/price"
+            android:text="40$"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@id/imageBook"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:textSize="12sp"
+            tools:text="Cette précision est-elle utile pour ce type de livre mine pas ses qualités d'écrivain," />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvSubtitle"
+            android:layout_toEndOf="@id/imageBook"
+            android:text="Subtitle"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

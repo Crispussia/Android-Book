@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/drawable/bg_search.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/drawable/ic_search.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/drawable/rounded_rectangle.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/drawable/searchview_background.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/layout/activity_books_store.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/layout/fragment_books_details.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/layout/fragment_books_list.xml" value="0.1" />
+        <entry key="..\:/Users/Bureau/AndroidStudioProjects/ProjectAndroid/app/src/main/res/layout/item_books.xml" value="0.2548476454293629" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
