@@ -21,9 +21,9 @@ import kotlin.collections.ArrayList
 
 
 class BooksAdapter(var items: Book): RecyclerView.Adapter<BooksAdapter.BooksViewHolder>(),Filterable{
-    var booksListFilter: ArrayList<BookInfo>
+    var booksListFilter: Book
     init {
-        booksListFilter= items.books
+        booksListFilter= items
     }
 
     override fun getFilter(): Filter {
@@ -31,16 +31,16 @@ class BooksAdapter(var items: Book): RecyclerView.Adapter<BooksAdapter.BooksView
            override fun performFiltering(constraint: CharSequence?): FilterResults {
                val charSearch = constraint.toString()
                if (charSearch.isEmpty()) {
-                   booksListFilter = items.books
+                   booksListFilter = items
                } else {
 
                    val filteredList = ArrayList<BookInfo>()
-                   for (book in items.books){
+                   for (book in booksListFilter.books){
                        if (book.title.lowercase().contains(charSearch.lowercase())){
                            filteredList.add(book)
                        }
                    }
-                   booksListFilter=filteredList
+                   booksListFilter.books=filteredList
                }
                val filterResults = FilterResults()
                filterResults.values = booksListFilter
@@ -49,38 +49,13 @@ class BooksAdapter(var items: Book): RecyclerView.Adapter<BooksAdapter.BooksView
 
            @SuppressLint("NotifyDataSetChanged")
            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-               booksListFilter = results?.values as ArrayList<BookInfo>
+               booksListFilter = results?.values as Book
                notifyDataSetChanged()
            }
 
        }
     }
-  /*  override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val charSearch = constraint.toString()
-                if (charSearch.isEmpty()) {
-                    booksListFilter = items
-                } else {
-                    val filteredList = ArrayList<BookInfo>()
-                    for (book in items.books){
-                        if (book.title.lowercase().contains(charSearch.lowercase())){
-                            filteredList.add(book)
-                        }
-                    }
-                    booksListFilter.books=filteredList
-                }
-                return FilterResults().apply { values = booksListFilter}
-            }
 
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                booksListFilter.books= results?.values as ArrayList<BookInfo>
-                notifyDataSetChanged()
-            }
-
-        }
-    }
-*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder {
        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_books,parent,false)
@@ -91,10 +66,10 @@ class BooksAdapter(var items: Book): RecyclerView.Adapter<BooksAdapter.BooksView
     override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
 
         Log.d("Response", "List Count :${items.books.size} ")
-        return holder.bind(booksListFilter[position])
+        return holder.bind(booksListFilter.books[position])
     }
 
-    override fun getItemCount()=  booksListFilter.size
+    override fun getItemCount()=  booksListFilter.books.size
 
     /*Creation of the View Container*/
 
@@ -113,19 +88,10 @@ class BooksAdapter(var items: Book): RecyclerView.Adapter<BooksAdapter.BooksView
             tvIdBook=itemView.findViewById(R.id.tvReference)
             imageBook=itemView.findViewById(R.id.imageBook)
             tvPrice=itemView.findViewById(R.id.tvPrice)
-          /* itemView.setOnClickListener{ v ->
-                val intent = Intent(v.context, DetailsBooks::class.java)
-                v.context.startActivity(intent)
-            }*/
 
 
             itemView.setOnClickListener { v ->
-              /*  val activity = v!!.context as AppCompatActivity
-                val bookFragment = FragmentB()
-
-                activity.supportFragmentManager.beginTransaction().replace(R.id.rec, bookFragment)
-                    .addToBackStack(null).commit()
-*/              val activity = v!!.context as AppCompatActivity
+                val activity = v!!.context as AppCompatActivity
                 val fr: Fragment = BooksDetails()
                 val trans= activity.supportFragmentManager.beginTransaction()
                 val args = Bundle()

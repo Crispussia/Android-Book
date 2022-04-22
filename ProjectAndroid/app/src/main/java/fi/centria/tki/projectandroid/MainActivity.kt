@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         books_Button=findViewById(R.id.button_book)
         books_Button.setOnClickListener{view->
 
-            //Start Boostore Activity to see the book Store
+            //Start Boostore Activity to see the book List
             view_books()
         }
     }

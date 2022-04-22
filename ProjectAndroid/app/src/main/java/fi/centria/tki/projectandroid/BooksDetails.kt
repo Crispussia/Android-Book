@@ -1,5 +1,6 @@
 package fi.centria.tki.projectandroid
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.Intent.ACTION_VIEW
 import android.graphics.Paint
@@ -41,10 +42,6 @@ class BooksDetails : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      /*  val mActionBar = (activity as AppCompatActivity?)!!.supportActionBar
-        mActionBar?.title = "Book Details"*/
-
-
     }
 
     override fun onCreateView(
@@ -74,22 +71,22 @@ class BooksDetails : Fragment() {
         Log.d("IdBook", "${intent}")
         lateinit var bookDetails: BookDetails
 
-
+        // Back on
       imageBack.setOnClickListener{
-
           val fr: Fragment = BooksList()
           val trans= activity?.supportFragmentManager?.beginTransaction()
           trans?.replace(R.id.fragmentContainer, fr)?.addToBackStack(null)?.commit()
-           /* activity.supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, bookFragment)
-                .addToBackStack(null).commit()*/
+
          /* Toast.makeText(
               activity,
               "yes",
               Toast.LENGTH_SHORT
           ).show()*/
         }
+
         //make network call asynchronously
        requestCall.enqueue(object : Callback<BookDetails> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<BookDetails>, response: Response<BookDetails>) {
                 Log.d("Response", "onResponse: ${response.body()}")
 
@@ -113,7 +110,7 @@ class BooksDetails : Fragment() {
 
                     url.paintFlags =url.paintFlags or Paint.UNDERLINE_TEXT_FLAG
                     url.text= bookDetails.url
-
+                    //Connect on Google
                     url.setOnClickListener{
                         val intent = Intent(
                             ACTION_VIEW,
@@ -145,16 +142,7 @@ class BooksDetails : Fragment() {
 
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BooksDetails.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+
         fun newInstance() : BooksDetails{
             return BooksDetails()
         }
